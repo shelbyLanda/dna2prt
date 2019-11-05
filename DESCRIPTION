@@ -1,11 +1,11 @@
 Package: dna2prt
 Type: Package
-Title: What the Package Does (Title Case)
+Title: DNA/RNA Sequence to Amino Acid Sequence
 Version: 0.1.0
 Author: Shelby Landa
 Maintainer: Shelby Landa <landas@tamu.edu>
 Description: dna2prt package contains the convert() funtion. The convert function will take a string of DNA or RNA sequence data and convert the sequence into a the corresponding amino acid sequence.
-License: What license is it under?
+License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

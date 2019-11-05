@@ -1,11 +1,14 @@
-#' Convert nucleotide sequence to amino acid sequence
-#'
+#' DNA/RNA sequence to amino acid sequence
 #' @param dna A character vector containing a single text string of DNA
 #' @return A character vector containing a single text string of amino acids
+#' @examples
+#' # DNA:
+#' dna <- "AtgcTTCggagtcgT"
+#' convert(dna)
+#' # RNA:
+#' rna <- "AuGUCGCAgGuGU"
+#' convert(rna)
 #' @export
-#'
-
-dna <- "ATGtacacagctaaaGAacggauuuctacacatGAAGgtagagaggccacagagagcacguag"
 
 convert <- function(dna){
   aaTable <- matrix(c("TTT", "TTC", "TTA", "TTG",
@@ -40,18 +43,22 @@ convert <- function(dna){
                     "R", "R", "R", "R",
                     "G", "G", "G", "G",
                     "S", "S", "R", "R"), 64, 2)
+  if (nchar(dna)%%3 != 0){
+    warning("Your sequence does not have the proper number of nucleotides
+and has been truncated at the last full codon.",
+            call. = FALSE)
+  }
   DNA <- toupper(dna)
   DNA <- gsub("U", "T", DNA)
-  numCodons <- nchar(DNA)/3
+  numCodons <- as.integer(nchar(DNA)/3)
   posCodon <- seq(from = 1, by = 3, length.out = numCodons)
   aaVector <- vector(mode = "character", length = numCodons)
   for (i in 1:numCodons){
     currentCodon <- substr(DNA, posCodon[i], posCodon[i]+2)
-    #codonVector[i] <- currentCodon
     for (j in 1:length(aaTable[,1])){
       if (currentCodon == aaTable[j,1]) aaVector[i] <- aaTable[j,2]
     }
   }
   aaSeq <- paste0(aaVector, collapse = "")
-  return (aaSeq)
+  print (aaSeq)
 }
