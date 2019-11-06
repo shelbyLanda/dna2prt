@@ -8,6 +8,6 @@ To install latest version of dna2prt:
 
 <code>library(devtools)</code>
 
-<code>install_github('shelbyLanda/dna2prt')</code>
+<code>install_github('shelbylanda/dna2prt')</code>
 
 <code>library(dna2prt)</code>
