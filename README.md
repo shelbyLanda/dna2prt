@@ -1,5 +1,6 @@
-## dna2prt
-Translate DNA/RNA sequence to amino acid sequence
+# dna2prt
+----------------
+## Translate DNA/RNA sequence to amino acid sequence
 
 To install latest version of dna2prt:
 
